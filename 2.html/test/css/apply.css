@@ -1,0 +1,37 @@
+fieldset h1 {
+    margin-left: 0px;
+}
+
+fieldset h4 {
+    margin-left: 0px;
+    font-weight: bold;
+}
+
+ul {
+    list-style: none;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+li {
+    margin: 10px;
+    padding-left: 20px;
+}
+
+input[type="radio"] {
+    padding-left: 20px;
+}
+
+#apply li {
+    display: block;
+    text-align: left;
+}
+
+#container {
+        width: 500px;           /* 너비 */
+        margin: 10px;
+        padding: 10px;
+        text-align: left;
+    }

@@ -1,0 +1,9 @@
+        h1 {
+            color: #fff;
+            padding: 10px;
+            background-color: #222;
+        }
+
+p {
+    font-style: italic;     /* 이탤릭체 */
+}
