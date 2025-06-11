@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>플렉스 박스 레이아웃</title>
+    <style>
+        .container {            /* class에 속성 부여할 때는 . 찍기기 */
+            display: flex;
+            background-color: #eee;
+            border: 1px solid #222;
+            margin-bottom: 30px;
+            width: 700px;
+        }
+
+        .box {
+            padding: 5px 45px;
+            margin: 5px;
+            width: 80px;
+        }
+
+        .box:nth-child(odd) {
+            background-color: bisque;
+        }
+
+        .box:nth-child(even) {
+            background-color: lightpink;
+        }
+
+        p {
+            text-align: center;
+            font-weight: bold;
+        }
+
+        #opt1 {     /* id에 속성 부여할 때는 # 쓰기 */
+                flex-flow: row wrap;
+        }
+
+        #opt2 {
+                flex-flow: row nowrap;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- 가로 + 줄바꿈 (row wrap) -->
+    <div class="container" id="opt1">
+        <div class="box"><p>a</p></div>
+        <div class="box"><p>b</p></div>
+        <div class="box"><p>c</p></div>
+        <div class="box"><p>d</p></div>
+        <div class="box"><p>e</p></div>
+        <div class="box"><p>f</p></div>
+    </div>
+    <!-- 가로 + 줄바꿈 없음 (row nowrap)-->
+    <div class="container" id="opt2">
+        <div class="box"><p>a</p></div>
+        <div class="box"><p>b</p></div>
+        <div class="box"><p>c</p></div>
+        <div class="box"><p>d</p></div>
+        <div class="box"><p>e</p></div>
+        <div class="box"><p>f</p></div>
+    </div>
+</body>
+</html>
