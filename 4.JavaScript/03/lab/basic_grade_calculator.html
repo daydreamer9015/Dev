@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>점수 등급 계산기</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: linear-gradient(135deg, #79eb92, #26e294);
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            color: #2d3436;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        h3 {
+            text-align: center;
+        }
+        .input-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #2d3436;
+        }
+        input[type="number"] {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+        input[typr="number"]:focus {
+            outline: none;
+            border-color: #39e486;
+        }
+        .btn {
+            width: 100%;
+            padding: 15px;
+            background: #39e486;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background 0.3s;
+        }
+        .btn:hover {
+            background: #2c9123;
+        }
+        .result-card {
+            background: #e8f4fd;
+            border: 2px solid #74b9ff;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top:20px;
+            text-align: center;
+        }
+        .result-emoji {
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+        .result-text {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #2d3436;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📊점수 등급 계산기</h1>
+        
+        <h3>📝점수를 입력하고 등급을 확인해보세요!</h3>
+
+        <div class="input-group">
+            <label for="gradeInput">점수 입력(0-100점):</label>
+            <input type="number" id="gradeInput" placeholder="85" min="0" max="100" />
+        </div>
+
+        <button class="btn" onclick="checkGrade()">📊등급 계산하기</button>
+
+        <!-- 결과 표시 영역 -->
+         <div id="gradeResult" class="result-card hidden">
+            <div id="gradeEmoji" class="result-emoji"></div>
+            <div id="gradeText" class="result-text"></div>
+         </div>
+    </div>
+
+    <script>
+        // 나이 체크 함수 - 버튼 클릭 시 실행됨
+        function checkGrade() {
+            // 입력칸에서 사용자가 입력한 나이 가져오기
+            let gradeInput = document.getElementById("gradeInput").value;   // 입력칸의 값을 문자열로 가져옴 ("" 썼으므로)
+            
+
+            // 빈 값 체크
+            if(gradeInput === "") {
+                alert("점수를 입력해주세요!");
+                document.getElementById("gradeInput").focus();        // 입력칸으로 커서 이동
+                return;     // 함수 중단
+            }
+            
+            // 숫자 검증 - 숫자가 아닌 값 체크
+            let grade = Number(gradeInput);     // 문자열을 숫자로 변환하고 그 값을 age에 저장
+            // 경고창 띄우기 (숫자만 입력해 주세요!)
+            // 변환 결과가 숫자가 아니거나 빈 문자열이라면
+            if(isNaN(grade) || gradeInput.trim() === "") {  
+                alert("숫자만 입력해 주세요!")
+                document.getElementById("gradeInput").value = ""; // 입력칸 비우기
+                document.getElementById("gradeInput").focus();    // 입력칸에 커서 이동
+                return;
+            }
+            // 범위 검증 - 나이가 올바른 범위인지 체크
+            // 음수라면 (나이는 0일 수 없어요! 1 이상 입력해 주세요! )
+            if(grade < 0) {
+                alert("점수는 0보다 작을 수 없어요!");
+                document.getElementById("gradeInput").value = "";
+                document.getElementById("gradeInput").focus();
+                return;
+            }
+            // 120세 초과라면
+            // 경고창 띄우기 (나이는 120세를 초과할 수 없어요!)
+            if(grade > 100) {
+                alert("점수는 100점을 초과할 수 없어요!")
+                document.getElementById("gradeInput").value = "";
+                document.getElementById("gradeInput").focus();
+                return;
+            }    
+
+            // 소수점 입력한다면 (Math.floor(), 나이는 정수로 입력해 주세요!)
+            // Math.floor() : 주어진 숫자를 내림하여 정수로 만들어줌
+            if(grade !== Math.floor(grade)) {
+                alert("점수는 소수점 첫째 자리까지만 입력해주세요! (예:85.5)")
+                document.getElementById("gradeInput").value = "";
+                document.getElementById("gradeInput").focus();
+                return;
+            }
+
+            // 모든 검증 통과 (나이에 따른 분류하기)
+            // 65세 이상 => 세는 어르신이시네요! 건강하세요 👴🏼👵🏼
+            // 20세 이상 => 세는 성인입니다! 성인 인증 완료 👨🏼👩🏼
+            // 14세 이상 => 세는 청소년입니다! 보호자 동의가 필요해요. 👦🏼👧🏼
+            // 14세 미만 => 세는 어린이입니다! 부모님과 함께 이용하세요. 👶🏼
+            let emoji, message;
+
+                if(grade >= 90) {
+                    emoji = "🏆"
+                    message = grade + "점은 A등급입니다! 최우수예요!🎉"
+                } else if(grade >= 80) {
+                    emoji = "🥇"
+                    message = grade + "점은 B등급입니다! 우수해요!👍🏼"
+                } else if(grade >= 70) {
+                    emoji = "🥈"
+                    message = grade + "점은 C등급입니다! 보통이에요!📑"
+                } else if (grade >= 60) {
+                    emoji = "🥉"
+                    message = grade + "점은 D등급입니다! 좀 더 노력해요!💪🏼"
+                } else if (grade < 60) {
+                    emoji = "😰"
+                    message = grade + "점은 F등급입니다! 다시 공부해야겠어요!📚"
+                }
+                
+            
+
+            // 결과를 화면에 보여주기
+            document.getElementById("gradeEmoji").textContent = emoji;
+            document.getElementById("gradeText").textContent = message;
+            document.getElementById("gradeResult").classList.remove("hidden");
+
+            // 콘솔에 결과 출력하기
+            console.log("==점수 체크 결과==");
+            console.log("입력된 나이점수: " + grade + "점");
+            console.log("분류 결과 : " + message);
+            console.log("모든 검증 통과!");
+        }
+        // 페이지가 처음 로드될 때 자동으로 실행되는 함수
+        window.onload = function() {
+            console.log("점수 체크가 시작되었습니다.");
+            console.log("점수를 입력하고 어떤 등급인지 확인해보세요!");
+        }
+
+        // enter를 눌렀을 때도 나이 체크가 되도록 하는 기능
+        document.addEventListener('keypress', function(event) {
+            if(event.key === 'Enter') {     // 엔터키가 눌렸다면
+                checkGrade();                 // 나이 체크 함수 실행
+            }
+        })
+    </script>
+</body>
+</html>
