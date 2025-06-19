@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>성적 계산기</title>
+    <style>
+
+    </style>
+    <script>
+        //학생 점수 배열
+        let scores = [95, 87, 76, 65, 54, 43, 88, 92, 71, 83, 69, 78, 85, 90, 72];
+        //학생 이름 배열
+        let studentNames = ["최승철", "윤정한", "홍지수", "문준휘", "권순영", "전원우", "이지훈", "서명호", "김민규", "이석민", "부승관", "최한솔", "이찬", "봉봉", "봉봉"];
+        //성적 통계 변수들
+        let gradeCount = { A:0, B:0, C:0, D:0, F:0 };
+        let totalScore = 0;
+
+        //점수를 학점으로 변환하는 함수
+        function getGrade(score) {
+            if(score >= 90) return 'A';
+            else if(score >= 80) return 'B';
+            else if(score >= 70) return 'C';
+            else if(score >= 60) return 'D';
+            else return 'F';
+        }
+
+        document.write("<div class='container'>");
+        document.write("<h1>학생 성적 관리 시스템</h1>");
+
+        //for문을 사용하여 개별 학생 성적 처리
+        for(let i = 0; i < scores.length; i++) {
+            let currentScore = scores[i];   //현재 학생의 점수를 currentScore 변수에 저장
+            let currentName = studentNames[i];  //현재 학생의 이름을 currentName 변수에 저장
+            let grade = getGrade(currentScore); //점수를 성적으로 변환
+            let cssClass = 'grade-' + grade;    //CSS 클래스명 생성(grade-A, grade-B,...)
+
+        //성적별 카운트 증가
+        gradeCount[grade]++;    //현재 성적 등급의 학생 수 증가(gradeCount.A++, gradeCount.B++,...)
+
+        //총점 누적
+        totalScore += currentScore;
+
+        //출력 -- 예) 김철수: 95점(A등급)
+        document.write("<div class='result'>")
+        document.write("<span class='" + cssClass + "'>" + currentName + ": " + currentScore + "점(" + grade + "등급)</span>");
+        document.write("</div>")
+        }
+        document.write("</div>");
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
