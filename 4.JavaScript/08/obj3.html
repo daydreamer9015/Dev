@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 객체의 함수 프로퍼티 */
+        const person = {
+            name: '신사임당',
+            age: 20,
+            print: function() {
+                console.log('hello JS');
+            }
+        };
+        person.print();     // 점 표기법
+        person['print']();  // 괄호 표기법 (기능이 함수이므로 뒤에 괄호 함께 들어가야함)
+        /* 위 두 개(line 18, 19) 모두 같은 결과값 도출함 */
+
+        const person2 = {
+            name: '신사임당',
+            age: 20,
+            print: function() {     // this 키워드가 person2 객체를 가리킴
+                console.log(`제 이름은 ${this.name}입니다.`);
+            }
+        };
+        person2.print();
+    </script>
+</body>
+</html>
