@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>findIndex, find, filterArray, slice</title>
+</head>
+<body>
+    <script>
+        let color = [
+            { id: 1, color: "green" },
+            { id: 2, color: "blue" },
+            { id: 3, color: "purple" },
+        ];
+
+        let idx = color.findIndex((elm) => elm.color === "purple");
+        console.log(idx);   // index는 0부터 시작하므로 purple은 2로 출력됨
+
+        // 조건에 맞는 요소가 없으면 -1을 반환함
+        idx = color.findIndex((elm) => elm.color === "yellow");
+        console.log(idx);
+        console.log('');
+
+        color.findIndex((elm, idx, array) => console.log(`${idx}번째 값: ${elm.id}, color:${elm.color}`));
+        console.log('');
+
+        // 원본 배열 출력
+        color.findIndex((elm, idx, array) => console.log(array));
+        console.log('');
+
+        let idx2 = color.find((elm) => elm.color === "purple");
+        console.log(idx2);
+        console.log('');
+
+        idx2 = color.find((elm) => elm.color === "yellow");
+        console.log(idx2);
+        console.log('');
+
+        // filter
+        let filterArray = color.filter((elm, idx, array) => elm.id > 1);
+        console.log(filterArray);
+        console.log('');
+
+        // slice
+        let color2 = [
+            { id: 1, color: "green" },
+            { id: 2, color: "blue" },
+            { id: 3, color: "purple" },
+            { id: 4, color: "yellow" },
+            { id: 5, color: "orange" },
+        ];
+        // index 1부터 2까지의 요소를 포함하는 새로운 객체 배열을 만듦
+        let sliceArray = color2.slice(1, 3);
+        console.log(sliceArray);
+        console.log('');
+        // slice를 해도 원본 배열은 변경되지 않음
+        console.log(color2);
+        console.log('');
+    </script>
+</body>
+</html>
