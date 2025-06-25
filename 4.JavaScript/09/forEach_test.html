@@ -267,18 +267,15 @@
 
                     result += "🏢 부서별 분포\n";
                     const departmentOddGroups = {};
-                    oddPositionEmployees.forEach((employee) => {                    
-                    if (!departmentOddGroups[employee.department]) {
-                        departmentOddGroups[employee.department] = 1;
-                    } else {
-                        departmentOddGroups[employee.department]++;
-                    }
+                    oddPositionEmployees.forEach((employee) => {
+                    departmentOddGroups[employee.department] = (departmentOddGroups[employee.department] || 0) + 1;
                     });
-                
-                    Object.keys(departmentOddGroups).forEach((department) => {
-                    result += `${department}: ${departmentOddGroups[department]}명\n`;
+
+                    // Object.entries로 [부서명, 인원수] 쌍을 순회하며 출력
+                    Object.entries(departmentOddGroups).forEach(([department, count]) => {
+                    result += `${department}: ${count}명\n`;
                     });
-                          
+                                        
                 output.textContent = result;
             }        
     </script>
