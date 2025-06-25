@@ -248,7 +248,7 @@
             });
 
             // 통계 계산
-            result += "📑 홀수 번째 직원 통계:\n";
+            result += "📋 홀수 번째 직원 통계:\n";
             const totalCount = oddEmployees.length;
             const totalSalary = oddEmployees.reduce((sum, emp) => sum + Number(emp.salary.replace(/,/g, '')), 0);
             const avgSalary = totalCount > 0 ? Math.round(totalSalary / totalCount) : 0;

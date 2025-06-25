@@ -242,14 +242,46 @@
                     result += `${index + 1}번째: ${employee.name}\n`;
                     result += `직책: ${employee.position}\n`;
                     result += `부서: ${employee.department}\n`;
-                    result += `급여: ${employee.salary.toLocaleString}원\n\n`;
+                    result += `급여: ${employee.salary.toLocaleString()}원\n\n`;
 
                     console.log(`${index+1}번째: ${employee.name}`);
-                }
-            });
-            output.textContent = result;
-        }
-            
+                }    
+            });      
+                    result += "📋 홀수 번째 직원 통계\n";
+                    let totalOddEmployees = oddPositionEmployees.length;
+                    result += `총 인원: ${totalOddEmployees}명\n`;
+
+                    let totalSalary = 0;
+                    oddPositionEmployees.forEach((employee) => {
+                        totalSalary += employee.salary;
+                    });
+                    result += `총 급여: ${totalSalary.toLocaleString()}원\n`;
+
+                    let avgSalary = 0;
+                    oddPositionEmployees.forEach((employee) => {
+                        avgSalary = totalSalary / totalOddEmployees;
+                        avgSalary = Math.round(avgSalary);
+                    });
+                    result += `평균 급여: ${avgSalary.toLocaleString()}원\n\n`;
+
+
+                    result += "🏢 부서별 분포\n";
+                    const departmentOddGroups = {};
+                    oddPositionEmployees.forEach((employee) => {
+                    // 만약 부서가 없으면 빈 배열로 초기화
+                    if (!departmentOddGroups[employee.department]) {
+                        departmentOddGroups[employee.department] = 1;
+                    } else {
+                        departmentOddGroups[employee.department]++;
+                    }
+                    });
+                
+                    Object.keys(departmentOddGroups).forEach((department) => {
+                    result += `${department}: ${departmentOddGroups[department]}명\n`;
+                    });
+                          
+                output.textContent = result;
+            }        
     </script>
 </body>
 </html>
