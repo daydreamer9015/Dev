@@ -267,8 +267,7 @@
 
                     result += "🏢 부서별 분포\n";
                     const departmentOddGroups = {};
-                    oddPositionEmployees.forEach((employee) => {
-                    // 만약 부서가 없으면 빈 배열로 초기화
+                    oddPositionEmployees.forEach((employee) => {                    
                     if (!departmentOddGroups[employee.department]) {
                         departmentOddGroups[employee.department] = 1;
                     } else {
