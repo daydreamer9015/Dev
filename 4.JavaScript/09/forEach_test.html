@@ -36,6 +36,7 @@
             transform: translateY(-2px);
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
+
         .employee-name {
             font-size: 18px;
             font-weight: bold;
@@ -75,7 +76,7 @@
             border-radius: 5px;
             margin: 10px 0;
             font-family: monospace;
-            white-space: pre-line;      /* 줄바꿈 유지 */
+            white-space: pre-line;  /* 줄바꿈을 유지하기 위함 */
         }
     </style>
 </head>
@@ -84,15 +85,19 @@
         <h1>forEach 활용 - 직원 정보 출력 시스템</h1>
         <div class="section">
             <h2>목표</h2>
-            <p><strong>forEach</strong>메서드를 사용하여 배열의 각 요소를 순회해 데이터를 출력하는 방법을 연습합니다.</p>
-            <p>실무에서는 직원 목록, 상품 목록 등을 화면에 표시할 때 자주 사용됩니다.</p>
+            <p><strong>forEach</strong>메서드를 사용하여 배열의
+               각 요소를 순회하여 데이터를 출력하는 방법을 연습합니다. 
+            </p>
+            <p>실무에서는 직원 목록, 상품 목록 등을 화면에 표시할때
+                자주 사용됩니다.
+            </p>
         </div>
         <div class="section">
-            <h2>👐🏻 직원 데이터</h2>
+            <h2>👐직원 데이터</h2>
             <div id="employeeList"></div>
         </div>
         <div class="section">
-            <h2>🔧 평가 문제</h2>
+            <h2>🔧평가 문제</h2>
             <button onclick="displayAllEmployees()">1. 전체 직원 목록 출력</button>
             <button onclick="displayEmployeesByDepartment()">2. 부서별 직원 출력</button>
             <button onclick="findOddPositionEmployees()">3. 홀수 번째 직원들</button>
@@ -102,7 +107,7 @@
     </div>
 
     <script>
-        // 직원 데이터 구조 만들기
+        // 직원 데이터 구조 
         const employees = [
             {
                 id: 1,
@@ -112,17 +117,17 @@
                 salary: 55000000,
                 email: "lee.sh@choongang.com",
                 phone: "010-1234-5678",
-                hireDate: "2020-03-15",
+                hireDate: "2020-03-15"
             },
             {
                 id: 2,
                 name: "신사임당",
                 department: "마케팅팀",
                 position: "마케팅 매니저",
-                salary: 60000000,
-                email: "ssid@choongang.com",
+                salary: 48000000,
+                email: "shin.sed@choongang.com",
                 phone: "010-2345-6789",
-                hireDate: "2018-04-15",
+                hireDate: "2019-07-22"
             },
             {
                 id: 3,
@@ -130,43 +135,43 @@
                 department: "개발팀",
                 position: "주니어 개발자",
                 salary: 38000000,
-                email: "lee.bw@choongang.com",
+                email: "lee.bj@choongang.com",
                 phone: "010-3456-7890",
-                hireDate: "2022-01-10",
+                hireDate: "2022-01-10"
             },
             {
                 id: 4,
-                name: "류승룡",
+                name: "류성룡",
                 department: "인사팀",
                 position: "인사 담당자",
                 salary: 42000000,
                 email: "ryu.sl@choongang.com",
                 phone: "010-4567-8901",
-                hireDate: "2021-05-03",
+                hireDate: "2021-05-03"
             },
             {
                 id: 5,
                 name: "손흥민",
                 department: "영업팀",
-                position: "대리",
+                position: "영업 대리",
                 salary: 40000000,
-                email: "son.hm@choongang.com",
+                email: "shon.hm@choongang.com",
                 phone: "010-5678-9012",
-                hireDate: "2021-11-18",
-            }
+                hireDate: "2021-11-18"
+            }                                                
         ];
 
-        // 페이지 로드 시 바로 구동되는 작업 - 직원 카드 표시
+        // 페이지 로드 시 직원 카드 표시 
         window.onload = function() {
-            displayAllEmployeeCards();
+            displayEmployeeCards();
         };
 
         // 직원 카드 형태로 표시하는 함수
-        function displayAllEmployeeCards() {
+        function displayEmployeeCards() {
             const container = document.getElementById('employeeList');
             let html = '';
 
-            // forEach를 사용하여 각 직원 정보를 카드 형태로 변환하여 출력
+            //forEach를 사용하여 각 직원 정보를 카드 형태로 변환
             employees.forEach((employee, index) => {
                 html += `
                     <div class="employee-card">
@@ -176,108 +181,120 @@
                         <div class="employee-info">📧 이메일: ${employee.email}</div>
                         <div class="employee-info">📞 연락처: ${employee.phone}</div>
                         <div class="employee-info">📅 입사일: ${employee.hireDate}</div>
-                    </div>
+                    </div>    
                 `;
             });
 
             container.innerHTML = html; // 직원 카드 HTML 생성, 화면에 표시
-            console.log("직원 카드가 성공적으로 출력되었습니다.");
+            console.log("직원 카드가 성공적으로 표시되었습니다.");
         };
 
-        // 1. displayAllEmployees 전체 직원 목록을 화면과 콘솔에 출력
+        // 1. 전체 직원 목록을 화면, 콘솔에 출력
         function displayAllEmployees() {
             const output = document.getElementById('output');
             let result = "==== 전체 직원 목록 ====\n\n";
 
-            //forEach 함수 사용하여 요소만 출력
+            //forEach
             employees.forEach((employee) => {
                 result += `${employee.name} - ${employee.department} ${employee.position}\n`;
-                console.log(`${employee.name} - ${employee.department} ${employee.position}`);
+                console.log(`${employee.name} - ${employee.department} ${employee.position}`)
             });
 
             output.textContent = result;
         }
-        // 2. 부서별로 직원을 그룹화하여 출력
+
+        //2. 부서별로 직원을 그룹화하여 출력
         function displayEmployeesByDepartment() {
-            const output = document.getElementById('output');
+            const output = document.getElementById("output");
             let result = "==== 부서별 직원 현황 ====\n\n";
 
-            // 부서별 그룹화를 위한 객체
+            //부서별 그룹화를 위한 객체
             const departmentGroups = {};
 
-            // forEach를 사용하여 부서별로 그룹화
+            //forEach를 사용하여 부서별로 그룹화 
             employees.forEach((employee) => {
-                // 만약 부서가 없으면 빈 배열로 초기화
+                //부서가 없으면 빈 배열로 초기화 
                 if(!departmentGroups[employee.department]) {
                     departmentGroups[employee.department] = [];
-                }
-                // 해당 부서에 직원 추가
+                }                   
+                //해당 부서에 직원 추가
                 departmentGroups[employee.department].push(employee);
             });
-            
+
+            // 각 부서별로 직원 목록 출력 
             Object.keys(departmentGroups).forEach((department) => {
-                result += `📁${department}: \n`;
+                result += `📁 ${department}: \n`;
                 // 해당 부서의 직원들을 순회하며 출력
                 departmentGroups[department].forEach((employee, index) => {
-                    result += `  ${index + 1}. ${employee.name} (${employee.position})\n`
+                    result += `  ${index + 1}. ${employee.name} (${employee.position})\n`;
                 });
-                result += "\n"
+                result += "\n";
             });
 
             output.textContent = result;
         }
-        // 3. 홀수 번째 직원들
+
+        //3. 홀수번째 직원들 
         function findOddPositionEmployees() {
-            const output = document.getElementById('output');
-            let result = "==== 홀수 번째 직원 목록 ====\n\n";
+            const output = document.getElementById("output");
+            let result = "==== 홀수 번째 직원들 ====\n\n";  
+            
+            result += "🔢 조건: 목록에서 홀수 번째 위치 (1, 3, 5번째)에 있는 직원\n\n";
+            result += "📋 홀수 번째 직원 목록: \n";
+            
+            
 
-            result += "🔢 조건; 목록에서 홀수 번째 위치(1, 3, 5번째)에 있는 직원\n\n"
-            result += "📋 홀수 번째 직원 목록 \n "
-
-            // 홀수번째 직원들 저장할 배열
+            //홀수 번째 직원들 저장할 배열 
             let oddPositionEmployees = [];
             employees.forEach((employee, index) => {
-                if((index + 1) % 2 !== 0) {     // 홀수번째 직원 배열에 추가
-                    oddPositionEmployees.push(employee);
-                    result += `${index + 1}번째: ${employee.name}\n`;
-                    result += `직책: ${employee.position}\n`;
-                    result += `부서: ${employee.department}\n`;
-                    result += `급여: ${employee.salary.toLocaleString()}원\n\n`;
+                if((index + 1) % 2 !== 0) {     
+                    oddPositionEmployees.push(employee); //홀수번째 직원 배열에 추가
+                    result += ` ${index+1}번째: ${employee.name}\n`;
+                    result += `   직책: ${employee.position}\n`;
+                    result += `   부서: ${employee.department}\n`;
+                    result += `   급여: ${employee.salary.toLocaleString()}원\n\n`;
 
-                    console.log(`${index+1}번째: ${employee.name}`);
-                }    
-            });      
-                    result += "📋 홀수 번째 직원 통계\n";
-                    let totalOddEmployees = oddPositionEmployees.length;
-                    result += `총 인원: ${totalOddEmployees}명\n`;
+                    console.log(`${index+1}번째 : ${employee.name}`);
+                }
+            });
 
-                    let totalSalary = 0;
-                    oddPositionEmployees.forEach((employee) => {
-                        totalSalary += employee.salary;
-                    });
-                    result += `총 급여: ${totalSalary.toLocaleString()}원\n`;
+            // 홀수번째 직원들의 통계 계산
+            let oddPositionSalaryTotal = 0;
+            oddPositionEmployees.forEach((emp) => {
+                oddPositionSalaryTotal += emp.salary;
+            });
 
-                    let avgSalary = 0;
-                    oddPositionEmployees.forEach((employee) => {
-                        avgSalary = totalSalary / totalOddEmployees;
-                        avgSalary = Math.round(avgSalary);
-                    });
-                    result += `평균 급여: ${avgSalary.toLocaleString()}원\n\n`;
+            // 평균 급여 
+            const oddPositionSalaryAvg = 
+                Math.round(oddPositionSalaryTotal/oddPositionEmployees.length);
 
+            // 화면 출력
+            result += `📈 홀수 번째 직원 통계:\n`; 
+            result += `  총 인원: ${oddPositionEmployees.length}명\n`;
+            result += `  총 급여: ${oddPositionSalaryTotal.toLocaleString()}원\n`;
+            result += `  평균 급여: ${oddPositionSalaryAvg.toLocaleString()}원\n`;    
 
-                    result += "🏢 부서별 분포\n";
-                    const departmentOddGroups = {};
-                    oddPositionEmployees.forEach((employee) => {
-                    departmentOddGroups[employee.department] = (departmentOddGroups[employee.department] || 0) + 1;
-                    });
+            // 부서별 분포 계산 - 객체 카운팅 패턴 
+            const departmentCount = {}; // 부서별 인원수를 저장할 빈객체 생성
+            /*
+                departmentCount[emp.department]: 해당 부서의 현재 카운트 값
+                1차 : departmentCount["개발팀"] = (undefined || 0) + 1 = 1
+                2차 : departmentCount["개발팀"] = (1 || 0) + 1 = 2
+                3차 : departmentCount["영업팀"] = (undefined || 0) + 1 = 1
 
-                    // Object.entries로 [부서명, 인원수] 쌍을 순회하며 출력
-                    Object.entries(departmentOddGroups).forEach(([department, count]) => {
-                    result += `${department}: ${count}명\n`;
-                    });
-                                        
-                output.textContent = result;
-            }        
+            */
+           oddPositionEmployees.forEach((emp) => {
+                departmentCount[emp.department] = (departmentCount[emp.department] || 0) + 1;
+           });
+            
+            result += `\n 🏢 부서별 분포:\n`;
+            
+            Object.entries(departmentCount).forEach(([dept, count]) => {
+                result += ` ${dept}: ${count}명\n`;
+            });                                    
+                
+            output.textContent = result;
+        }
     </script>
 </body>
 </html>

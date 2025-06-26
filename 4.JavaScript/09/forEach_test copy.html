@@ -37,7 +37,7 @@
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
         .employee-name {
-            font-size: 18px;   
+            font-size: 18px;
             font-weight: bold;
             color: #007bff;
             margin-bottom: 5px;
@@ -95,7 +95,7 @@
             <h2>🔧 평가 문제</h2>
             <button onclick="displayAllEmployees()">1. 전체 직원 목록 출력</button>
             <button onclick="displayEmployeesByDepartment()">2. 부서별 직원 출력</button>
-            <button onclick="oddPositionEmployees()">3. 홀수 번째 직원들</button>
+            <button onclick="findOddPositionEmployees()">3. 홀수 번째 직원들</button>
 
             <div id="output" class="output"></div>
         </div>
@@ -109,7 +109,7 @@
                 name: "이순신",
                 department: "개발팀",
                 position: "시니어 개발자",
-                salary: "55,000,000",
+                salary: 55000000,
                 email: "lee.sh@choongang.com",
                 phone: "010-1234-5678",
                 hireDate: "2020-03-15",
@@ -119,7 +119,7 @@
                 name: "신사임당",
                 department: "마케팅팀",
                 position: "마케팅 매니저",
-                salary: "60,000,000",
+                salary: 60000000,
                 email: "ssid@choongang.com",
                 phone: "010-2345-6789",
                 hireDate: "2018-04-15",
@@ -129,7 +129,7 @@
                 name: "이방원",
                 department: "개발팀",
                 position: "주니어 개발자",
-                salary: "38,000,000",
+                salary: 38000000,
                 email: "lee.bw@choongang.com",
                 phone: "010-3456-7890",
                 hireDate: "2022-01-10",
@@ -139,7 +139,7 @@
                 name: "류승룡",
                 department: "인사팀",
                 position: "인사 담당자",
-                salary: "42,000,000",
+                salary: 42000000,
                 email: "ryu.sl@choongang.com",
                 phone: "010-4567-8901",
                 hireDate: "2021-05-03",
@@ -149,7 +149,7 @@
                 name: "손흥민",
                 department: "영업팀",
                 position: "대리",
-                salary: "40,000,000",
+                salary: 40000000,
                 email: "son.hm@choongang.com",
                 phone: "010-5678-9012",
                 hireDate: "2021-11-18",
@@ -226,49 +226,58 @@
 
             output.textContent = result;
         }
-        // 3. 홀수 번째 직원들 출력
-        function oddPositionEmployees() {
+        // 3. 홀수 번째 직원들
+        function findOddPositionEmployees() {
             const output = document.getElementById('output');
-            let result = "==== 홀수 번째 직원 목록 ====\n\n🔢 조건: 목록에서 홀수 번째 위치(1, 3, 5번째)에 있는 직원\n\n📋 홀수 번째 직원 목록 \n";
+            let result = "==== 홀수 번째 직원 목록 ====\n\n";
 
-            // 홀수 번째 직원만 따로 배열로 저장
-            const oddEmployees = [];
-            employees.forEach((employee, idx) => {
-                if (idx % 2 === 0) { // 0, 2, 4, ...
-                    oddEmployees.push(employee);
-                }
-            });
+            result += "🔢 조건; 목록에서 홀수 번째 위치(1, 3, 5번째)에 있는 직원\n\n"
+            result += "📋 홀수 번째 직원 목록 \n "
 
-            // 직원 목록 출력
-            oddEmployees.forEach((employee, i) => {
-                result += `${i + 1}번째: ${employee.name}\n`;
-                result += `직책: ${employee.position}\n`;
-                result += `부서: ${employee.department}\n`;
-                result += `급여: ${employee.salary}원\n\n`;
-            });
+            // 홀수번째 직원들 저장할 배열
+            let oddPositionEmployees = [];
+            employees.forEach((employee, index) => {
+                if((index + 1) % 2 !== 0) {     // 홀수번째 직원 배열에 추가
+                    oddPositionEmployees.push(employee);
+                    result += `${index + 1}번째: ${employee.name}\n`;
+                    result += `직책: ${employee.position}\n`;
+                    result += `부서: ${employee.department}\n`;
+                    result += `급여: ${employee.salary.toLocaleString()}원\n\n`;
 
-            // 통계 계산
-            result += "📋 홀수 번째 직원 통계:\n";
-            const totalCount = oddEmployees.length;
-            const totalSalary = oddEmployees.reduce((sum, emp) => sum + Number(emp.salary.replace(/,/g, '')), 0);
-            const avgSalary = totalCount > 0 ? Math.round(totalSalary / totalCount) : 0;
-            result += `총 인원: ${totalCount}명\n`;
-            result += `총 급여: ${totalSalary.toLocaleString()}원\n`;
-            result += `평균 급여: ${avgSalary.toLocaleString()}원\n\n`;
+                    console.log(`${index+1}번째: ${employee.name}`);
+                }    
+            });      
+                    result += "📈 홀수 번째 직원 통계\n";
+                    let totalOddEmployees = oddPositionEmployees.length;
+                    result += `총 인원: ${totalOddEmployees}명\n`;
 
-            // 부서별 분포
-            result += "📈 부서별 분포:\n";
-            const departmentCount = {};
-            oddEmployees.forEach(emp => {
-                departmentCount[emp.department] = (departmentCount[emp.department] || 0) + 1;
-            });
-            Object.keys(departmentCount).forEach(dept => {
-                result += `${dept}: ${departmentCount[dept]}명\n`;
-            });
+                    let totalSalary = 0;
+                    oddPositionEmployees.forEach((employee) => {
+                        totalSalary += employee.salary;
+                    });
+                    result += `총 급여: ${totalSalary.toLocaleString()}원\n`;
 
-            output.textContent = result;
-        }
+                    let avgSalary = 0;
+                    oddPositionEmployees.forEach((employee) => {
+                        avgSalary = totalSalary / totalOddEmployees;
+                        avgSalary = Math.round(avgSalary);
+                    });
+                    result += `평균 급여: ${avgSalary.toLocaleString()}원\n\n`;
 
+
+                    result += "🏢 부서별 분포\n";
+                    const departmentOddGroups = {};
+                    oddPositionEmployees.forEach((employee) => {
+                    departmentOddGroups[employee.department] = (departmentOddGroups[employee.department] || 0) + 1;
+                    });
+
+                    // Object.entries로 [부서명, 인원수] 쌍을 순회하며 출력
+                    Object.entries(departmentOddGroups).forEach(([department, count]) => {
+                    result += `${department}: ${count}명\n`;
+                    });
+                                        
+                output.textContent = result;
+            }        
     </script>
 </body>
 </html>
