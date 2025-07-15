@@ -225,6 +225,7 @@ section {
     background: white;
     color: var(--primary-color);
     transform: translateY(-3px);
+    text-decoration: none;
 }
 
 .hero-image {
@@ -293,6 +294,10 @@ section {
 }
 
 .detailSkills {
+    list-style: none;
+}
+
+.detailInfo {
     list-style: none;
 }
 
