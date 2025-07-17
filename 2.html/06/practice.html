@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>연습</title>
+    <link rel="stylesheet" href="css/required.css">
+</head>
+<body>
+    <form>
+        <fieldset>
+            <ul id="shipping">
+            <legend>주문 정보</legend>
+                <li>
+                    <label for="prodname">상품명</label>
+                    <input type="text" id="prodname" value="HBD" readonly>
+                </li>
+                <li>
+                    <label for="user-name">이름</label>
+                    <input type="text" id="user-name"  autofocus required>
+                </li>
+                <li>
+                    <label for="addr">주소</label>
+                    <input type="text" id="addr" required placeholder="예) 서울시 마포구 신촌로 176">
+                </li>
+                <li>
+                    <label for="phone">전화번호</label>
+                    <input type="text" id="phone" required placeholder="예) 01012345678">
+                </li>
+                <li>
+                    <label for="mem">멤버 선택</label>
+                    <select id="mem">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                        <option value="13">13</option>
+                    </select>
+                <li>
+                    <label for="area">요청사항</label>
+                    <textarea id="area" cols="40" rows="4"></textarea>
+                </li>
+            </ul>          
+        </fieldset>
+        <div>
+            <input type="submit" value="주문하기">
+            <input type="reset" value="취소하기">
+        </div>
+    </form>
+</body>
+</html>

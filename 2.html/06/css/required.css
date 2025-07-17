@@ -1,0 +1,46 @@
+fieldset {
+    margin-bottom: 20px;   /* 테두리 아래쪽 마진 */
+}
+
+fieldset legend {      /* fieldset 요소의 하위 요소인 legend에 적용 (comma를 쓰지 않고 space로 구분했기 때문) */
+    font-weight: bold;
+}
+
+ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+li {
+    margin: 10px;
+}
+
+#shipping li label {    /* #shipping 요소의 하위 li의 label까지 적용한다 */
+    width: 80px;
+    float: left;    /* 좌우 배치 */
+    display: block;
+    text-align: left;   /* 텍스트 왼쪽 정렬 */
+}
+
+input[type="text"], input[type="tel"], input[type="email"] {
+    width: 300px;  /* 너비 */
+}
+
+/* '주문하기', '취소하기' 버튼 */
+div {
+    width: 400px;
+    margin: 15px auto;
+}
+
+input[type="submit"], input[type="reset"] {
+    text-align: center;
+    width: 150px;
+    height: 40px;
+    background-color: #fafa;
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #ccc;
+}
+
+input[type="submit"] {
+    margin-right: 20px;
+}

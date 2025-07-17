@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>0605-2</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;    /* 줄간격을 1.6배로 설정 (가독성 향상) */
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+        }
+    h1 {
+            text-align: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: xx-large;
+            font-weight: bold;
+            color: white;
+            text-shadow: 3px 3px 3px black;
+            margin: 30px;
+        }
+    .container {
+        width: 400px;
+        height: 650px;
+        background-color: white;
+        text-align: center;
+        margin: 0 auto;
+        border-radius: 15px;
+    }
+    .main {
+        padding: 30px;
+    }
+    .last {
+        width: 100px;
+        height: 100px;
+        line-height: 100px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        text-align: center;
+        border-radius: 50%;
+        font-size: xx-large;
+        font-weight: bold;
+        color: white;
+        margin: 0 auto;
+        border-width: 2px white;
+        box-shadow: 0 0 10px gray;
+    }
+    .name {
+        padding: 10px;
+        font-size: 150%;
+        font-weight: bold;
+        color: black;
+        text-align: center;
+    }
+    .job {
+        padding: 10px;
+        font-size: medium;
+        font-weight: bold;
+        color: #667eea;
+        text-align: center;
+    }
+    .content {
+        width: 100%;
+        height: auto;
+        color: gray;
+        text-align: center;
+        padding: 20px;
+    }
+    .num {
+        text-align: center;
+        padding: 10px;
+        margin: 10px;
+        display: inline-block;
+        font-size: small;
+        color: gray;
+    }
+    .ber {
+        font-size: 30px;
+        font-weight: bold;
+        color: #667eea;
+        text-align: center;
+    }
+    hr {
+        width: 80%;
+        margin: 0 auto;
+        text-align: center;
+    }
+    .main-nav {
+            padding: 15px 0;    /* 좌우 패딩 0으로 설정 */
+            box-sizing: border-box; /* 박스 크기 계산에 padding, border */
+        }
+    .main-nav ul {
+            list-style: none;
+            text-align: center; /* 자식 요소들(li)을 중앙 정렬 */
+            margin: 0;
+            padding: 0;
+        }
+    .main-nav li {
+        display: inline-block;
+        margin: 0 15px;
+        background-color: rgb(245, 240, 234);
+        border-radius: 50%;
+    }
+    .main-nav a {
+        text-decoration: none;
+        padding: 12px 20px  /* 클릭 영역 확대, 버튼처럼 클릭하기 쉽게 만듦 */;
+        display: inline-block;
+        font-weight: 500;   /* 약간 굵은 글씨 -> 가독성 향상 */
+        font-size: 16px;
+    }
+</style>
+<body>
+    <h1>
+        🎯미션임파서블 파이널 완성
+    </h1>
+    <div class="container">
+        <div class="main">
+            <div class="last">
+                <p>이</p>
+            </div>
+            <div class="name">
+                <p>이개발</p>
+            </div>  
+            <div class="job">
+                프론트엔드 개발자
+            </div>
+            <div class="content">
+                사용자 중심의 웹 경험을 만드는 것을 좋아하는 개발자입니다. HTML, CSS, JavaScript를 활용해서 아름답고 기능적인 인터페이스를 제작합니다.
+            </div>
+        </div>
+
+            <hr>
+        <div class="num">
+            <div class="ber"> 324 </div>
+            <br> 팔로워
+            </div>
+            <div class="num">
+            <div class="ber"> 89 </div>
+            <br> 팔로잉
+            </div>
+            <div class="num">
+            <div class="ber"> 42 </div>
+            <br> 프로젝트
+            </div>
+            <nav class="main-nav">
+            <ul>
+                <li><a href="#" class="nav1">📱</a></li>
+                <li><a href="#" class="nav2">✉️</a></li>
+                <li><a href="#" class="nav3">☎️</a></li>
+                <li><a href="#" class="nav4">💻</a></li>
+            </ul>
+            </nav>
+    </div>   
+</body>
+</html>

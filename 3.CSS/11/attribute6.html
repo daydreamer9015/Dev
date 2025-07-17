@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>속성 선택자</title>
+    <style>
+        ul {
+            list-style-type: none;
+        }
+        li {
+            width: 150px;
+            display: inline-block;
+            margin: 10px;
+        }
+        li a {
+            padding: 5px 20px;
+            font-size: 14px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        /* 속성값이 "hwp"로 끝나는 요소를 찾는 선택자 */
+        a[href$=hwp] {
+            background: url(images/bg.jpg) no-repeat left center;
+        }
+        /* 속성값이 "xls"로 끝나는 요소를 찾는 선택자 */
+        a[href$=xls] {
+            background: url(images/coffee.jpeg) no-repeat left center;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li><a href="intro.hwp">외국어 서비스</a></li>
+        <li><a href="intro.xls">영어</a></li>
+    </ul>
+</body>
+</html>

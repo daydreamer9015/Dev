@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let colors = ["green", "blue", "purple"];
+        console.log(colors.at(1));
+        console.log(colors.at(-1));
+        console.log(colors.at(3));
+        console.log('');
+
+        console.log(colors.includes("blue"));       // 목록에 있으므로 true
+        console.log(colors.includes("yellow"));     // 목록에 없으므로 false
+        console.log(colors.includes("purple", 2));  // 2번째 인덱스부터 따졌을 때 purple이라는 요소가 2번째 인덱스에 있기 때문에 true
+        console.log(colors.includes("green", 1));   // 1번째 인덱스부터 따졌을 때 green이라는 요소는 0번째 인덱스에 있기 때문에 false
+        console.log(colors.includes("yellow", 0));  // 0번째 인덱스부터 따졌을 때 yellow라는 요소는 없기 때문에 false
+        console.log('');
+
+        console.log(colors.indexOf("purple"));
+        console.log(colors.indexOf("yellow"));
+    </script>
+</body>
+</html>
