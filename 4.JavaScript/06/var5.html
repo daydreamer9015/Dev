@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function sum() {
+            let n = 10;     //(블록 스코프)
+            let result = 0; //(블록 스코프)
+
+            for(let i = 1; i <= n; i++) {   //(블록 스코프)
+                result += i;
+            }
+            console.log(result); 
+        }
+        sum();
+        console.log(result);    //result를 선언한 블록에서 벗어났기 때문에 접근할 수 없음. ReferenceError 발생.
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flex-grow</title>
+    <style>
+        .container {
+            display: flex;
+            width: 600px;
+            border: 2px solid black;
+        }
+        .box {
+            height: 100px;
+            color: white;
+            text-align: center;
+            line-height: 100px;
+        }
+        .box1 {
+            flex-grow: 1;       /* 전체 600px에서 남는 공간 중 차지하는 비율: 1 => 100px */
+            background-color: coral;
+        }
+        .box2 {
+            flex-grow: 2;       /* 전체 600px에서 남는 공간 중 차지하는 비율: 2 => 200px */
+            background-color: royalblue;
+        }
+        .box3 {
+            flex-grow: 3;       /* 전체 600px에서 남는 공간 중 차지하는 비율: 3 => 300px */
+            background-color: seagreen;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box box1">grow: 1</div>
+        <div class="box box2">grow: 2</div>
+        <div class="box box3">grow: 3</div>
+    </div>
+</body>
+</html>

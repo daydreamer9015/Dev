@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1에서 5까지 합 구하기</title>
+    <style>
+        body {
+            font-size: 1.5em;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        let sum = 0;
+        // 1. 초기값은 한번만 실행 => 2. 조건 => 3. 명령 => 4. 증가식
+        // 2-3-4 반복실행하다가 2번의 조건이 만족하지 않으면 더이상 실행되지 않음
+        for(let i = 1; i < 6; i++){
+            sum += i;
+        }
+        document.write(`1부터 5까지 더하면 ${sum}`);
+    </script>
+</body>
+</html>

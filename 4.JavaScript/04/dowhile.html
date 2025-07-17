@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drawing a star</title>
+    <style>
+        body {
+            font-size: 2em;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        let stars = parseInt(prompt("몇 개의 별을 표시할까요?"))
+        do {
+            document.write('🌠');
+            stars--;
+        } while(stars > 0); 
+    </script>
+</body>
+</html>

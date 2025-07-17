@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * { margin: 0; }
+        .blue { color: #00f; }
+        .red { color: #f00; }  
+    </style>
+</head>
+<body>
+    <script>
+        /*
+            20부터 10까지의 숫자 중에서 짝수일 경우에는 파란색으로 출력, 홀수인 경우에는 빨간색으로 출력
+        */
+       let i = 20;
+       while(i >= 10) {
+        if(i % 2 === 0) {
+             document.write(`<p style= "color: blue;">${i}</p>` + "<br>");
+             document.write("<p class='blue'>" + i + "</p>")
+        } else if(i % 2 === 1) {
+            document.write(`<p style= "color: red;">${i}</p>` + "<br>");
+        }
+        i--;
+       }
+       
+    </script>
+</body>
+</html>

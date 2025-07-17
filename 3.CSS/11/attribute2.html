@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>속성 선택자</title>
+    <style>
+        ul {
+            list-style-type: none;
+        }
+        li {
+            width: 150px;
+            display: inline-block;
+            margin: 10px;
+        }
+        li a {
+            padding: 5px 20px;
+            font-size: 14px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        /* target 속성값이 _blank인 a요소에만 스타일 지정하기 */
+        a[target=_blank] {
+            padding-right: 30px;
+            background: url(images/bg.jpg) no-repeat center right;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li><a>Main Menu</a></li>
+        <li><a href="https://www.apple.com/kr/" target="_blank">Apple</a></li>      <!-- _blank 값을 넣으면 새 창에서 뜸 -->
+        <li><a href="https://www.apple.com/kr/shop/buy-ipad/ipad-pro">iPad Pro</a></li>
+        <li><a href="https://www.apple.com/kr/shop/buy-mac/macbook-pro">MacBook Pro</a></li>
+    </ul>
+</body>
+</html>
