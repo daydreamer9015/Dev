@@ -21,6 +21,10 @@ class Employee {
 		System.out.println("직원명: " + name);
 		System.out.println("기본 급여: " + baseSalary +"만원");
 	}
+	public void printEmpolyeeInfo1() {
+		// TODO Auto-generated method stub
+		
+	}
 }
 
 //자식 클래스
