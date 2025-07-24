@@ -1,0 +1,1027 @@
+/* ====== 전역 변수 및 리셋 ====== */
+:root {
+  --primary-color: #667eea;
+  --secondary-color: #764ba2;
+  --accent-color: #3b82f6;
+  --danger-color: #f66565;
+  --bg-color: #f9f9fb;
+  --text-color: #2c3e50;
+  --white: #fff;
+  --shadow: rgba(0,0,0,0.08);
+  --radius: 16px;
+  --container-width: 1200px;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;   /* 줄간격 */
+  color: var(--text-color);   /* CSS 변수 사용(var 함수를 통해 텍스트 색상 변경) */
+  overflow-x: hidden;     /* 가로 스크롤 방지 */
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* ====== 네비게이션 ====== */
+.navbar {
+    background: var(--white);
+    box-shadow: 0 2px 20px var(--shadow);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Hero 섹션보다 높게 설정 */
+    transition: all 0.3s ease;
+}
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--primary-color);
+  cursor: pointer;
+}
+.nav-menu {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  align-items: center;
+}
+.nav-menu a {
+  text-decoration: none;
+  color: var(--text-color);
+  font-weight: 500;
+  font-size: 1.1rem;
+  position: relative;
+  transition: color 0.3s;
+}
+.nav-menu a:hover, .nav-menu a:focus {
+  color: var(--primary-color);
+}
+.nav-menu a::after {
+  content: "";
+  width: 0;
+  height: 2px;
+  background: var(--primary-color);
+  position: absolute;
+  left: 0; bottom: -5px;
+  transition: width 0.3s;
+}
+.nav-menu a:hover::after, .nav-menu a:focus::after {
+  width: 100%;
+}
+.social-links {
+  display: flex;
+  gap: 1rem;
+}
+.social-links a {
+  text-decoration: none;
+}
+.social-btn {
+  width: 44px; height: 44px;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(102,126,234,0.1);
+  border-radius: 50%;
+  border: 2px solid var(--primary-color);
+  color: var(--primary-color);
+  font-size: 1.3rem;
+  transition: background 0.18s, color 0.18s, transform 0.22s;
+}
+.social-btn a {
+  text-decoration: none;
+}
+.social-btn:hover {
+  background: var(--primary-color);
+  color: #fff;
+  transform: translateY(-2px);
+  text-decoration: none;
+}
+
+/* ====== Hero 메인 영역 (index2.html: header.hero-main) ====== */
+.hero-main {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color)100%);
+    color: white;
+    padding: 8rem 0 5rem;
+    margin-top: 70px;
+    min-height: 90vh;       /* 뷰포트 높이의 90% */
+    display: flex;
+    align-items: center;
+}
+
+.hero-container {
+    flex-direction: row;
+    align-items: center;
+    gap: 60px;
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 2rem;
+    width: 100%;
+}
+.hero-text {
+  margin-left: 20px;
+  flex: 2;
+}
+.hero-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;     /* 두 개의 동일한 너비 열 */
+    gap: 4rem;
+    align-items: center;
+}
+.hero-title {
+  font-size: 3rem;
+  margin-bottom: 1.2rem;
+  font-weight: 900;
+  line-height: 1.1;
+}
+.hero-title .highlight {
+  background: linear-gradient(45deg, #ff9a9e, #fecfef);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.hero-subtitle {
+  font-size: 1.45rem;
+  margin-bottom: 1.5rem;
+  opacity: 0.93;
+}
+.hero-description {
+  opacity: 0.84;
+  font-size: 1.08rem;
+  margin-bottom: 2rem;
+  line-height: 1.8;
+}
+.hero-buttons {
+  display: flex;
+  gap: 1.2rem;
+  margin-bottom: 2rem;
+}
+.btn-primary, .btn-secondary {
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 30px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 2px 12px rgba(102, 126, 234, 0.12);
+  text-decoration: none;
+}
+.btn-primary {
+  background: transparent;
+  color: #fff;
+  border: 2px solid #fff;
+}
+.btn-primary:hover {
+  background: var(--primary-color);
+  color: #fff;
+  box-shadow: 0 6px 24px rgba(102, 126, 234, 0.22);
+  transform: translateY(-3px);
+}
+.btn-secondary {
+  background: transparent;
+  color: #fff;
+  border: 2px solid #fff;
+}
+.btn-secondary:hover {
+  background: var(--primary-color);
+  color: #fff;
+  box-shadow: 0 6px 24px rgba(102, 126, 234, 0.22);
+  transform: translateY(-3px);
+}
+.hero-image {
+  display: flex;
+  justify-content: center;
+  flex: 1;
+}
+.profile-image {
+  width: 400px; height: 500px;
+  border-radius: 30%;
+  background: linear-gradient(45deg, #ff9a9e, #fecfef);
+  border: 3px solid rgba(255,255,255,0.21);
+  box-shadow: 0 8px 36px rgba(0,0,0,0.12);
+  object-fit: cover;
+  transition: transform 0.15s;
+}
+.profile-image:hover {
+  transform: scale(1.04);
+}
+
+/* ====== About ====== */
+.about-main {
+  padding: 8rem 0 5rem;
+  margin-top: 70px;
+  display: flex;
+  align-items: center;
+  background: var(--bg-color);
+}
+.about-main .container {
+  max-width: 800px;
+}
+.about-main h2 {
+  font-size: 2rem;
+  color: var(--primary-color);
+  margin-bottom: 1.6rem;
+  text-align: center;
+  font-weight: 800;
+}
+.about-main p {
+  font-size: 1.05rem;
+  margin-bottom: 1.8rem;
+  color: var(--text-color);
+  line-height: 1.8;
+  opacity: 0.97;
+  text-align: center;
+}
+.detailSkills {
+  list-style: none;
+  background: #fff;
+  border-radius: var(--radius);
+  box-shadow: 0 2px 12px var(--shadow);
+  padding: 1.5rem 2rem;
+  margin: 0 auto;
+  max-width: 550px;
+  font-size: 1.03rem;
+}
+.detailSkills li {
+  margin-bottom: 0.75rem;
+  font-weight: 500;
+  color: #363642;
+}
+
+/* ====== Skills Section 스타일 index2.html 구조에 완전 일치 ====== */
+.skills-section {
+  padding: 6rem 0 4rem;
+  background: #f9f9fb;
+}
+.skills-section h2 {
+  font-size: 2rem;
+  margin-bottom: 2.2rem;
+  text-align: center;
+  color: var(--primary-color, #667eea);
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+.skills-container {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 2rem;
+  align-content: center;
+  justify-content: center;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}.skill-card {
+    background: #fff;
+    border-radius: var(--radius);
+    box-shadow: 0 2px 12px var(--shadow);
+    padding: 2rem 2rem 1.25rem 2rem;
+    min-width: 260px; 
+    max-width: 340px;
+    flex: 1;
+    margin-bottom: 2rem;
+    transition: transform 0.18s, box-shadow 0.18s;
+    cursor: pointer;
+}
+
+.skill-card:hover {
+    box-shadow: 0 6px 24px var(--shadow);
+    transform: translateY(-3px) scale(1.03);
+}
+
+.skill-card h3 {
+    margin-bottom: 1rem;
+    color: var(--accent-color);
+    font-size: 1.13rem;
+    font-weight: 700;
+}
+
+.skill-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.skill-card li {
+    background: #f9f9fb;
+    border-radius: 8px;
+    padding: 0.55rem 1rem;
+    margin-bottom: 0.35rem;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+    font-size: 1.01rem;
+    color: var(--text-color);
+    font-weight: 500;
+    transition: background 0.18s;
+}
+
+.skill-card li:hover {
+    background: #e0e7ff;
+}
+
+/* ====== Projects ====== */
+.projects-main {
+  background: #f9f9fb;
+  padding: 7rem 0 5rem;
+  margin-top: 70px;
+  display: flex;
+  align-items: center;
+}
+.projects-main h2 {
+  font-size: 2rem;
+  color: var(--primary-color);
+  margin-bottom: 2.2rem;
+  text-align: center;
+  font-weight: 800;
+}
+.project-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+.project-card {
+  background: #fff;
+  border-radius: var(--radius);
+  box-shadow: 0 2px 12px var(--shadow);
+  padding: 2rem 2rem 1.25rem 2rem;
+  min-width: 260px; max-width: 340px;
+  flex: 1;
+  margin-bottom: 2rem;
+  transition: transform 0.18s, box-shadow 0.18s;
+}
+.project-card:hover {
+  box-shadow: 0 6px 24px var(--shadow);
+  transform: translateY(-3px) scale(1.03);
+}
+.project-card h3 {
+  margin-bottom: 1rem;
+  color: var(--accent-color);
+  font-size: 1.13rem;
+  font-weight: 700;
+}
+.project-card ul {
+  padding-left: 1rem;
+  margin-bottom: 0.5rem;
+}
+.project-card li {
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+/* ====== Contact ====== */
+.contact-main {
+  padding: 7rem 0 4.5rem;
+  background: #f9f9fb;
+}
+.contact-main h2 {
+  font-size: 2rem;
+  color: var(--primary-color);
+  margin-bottom: 2.1rem;
+  text-align: center;
+  font-weight: 800;
+}
+.contact-flex {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+.contact-info-card, .contact-form-card {
+  background: #fff;
+  border-radius: var(--radius);
+  box-shadow: 0 2px 12px var(--shadow);
+  padding: 2rem 2rem 1.5rem 2rem;
+  min-width: 260px;
+  max-width: 340px;
+  flex: 1;
+}
+.contact-info-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.contact-info-card li {
+  margin-bottom: 1rem;
+  font-size: 1.07rem;
+}
+.contact-info-card a {
+  color: var(--accent-color);
+  text-decoration: none;
+}
+.contact-info-card a:hover {
+  text-decoration: underline;
+  color: var(--danger-color);
+}
+.contact-form-card form {
+  display: flex;
+  flex-direction: column;
+}
+.contact-form-card label {
+  margin-top: 1rem;
+  margin-bottom: 0.4rem;
+  font-weight: 600;
+}
+.contact-form-card input,
+.contact-form-card textarea {
+  border-radius: 6px;
+  border: 1px solid #e5e5ec;
+  padding: 0.9rem 1.1rem;
+  margin-bottom: 1rem;
+  font-size: 1.07rem;
+  background: #f7f8fa;
+}
+.contact-form-card textarea {
+  min-height: 100px;
+  resize: vertical;
+  font-family: inherit !important;
+}
+
+/* ====== Footer ====== */
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  font-size: 1rem;
+  color: #616877;
+  min-height: 50px;
+  box-shadow: 0 -2px 14px 0 var(--shadow);
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  padding: 1.2rem 0;
+}
+.footer a {
+  color: var(--primary-color);
+  margin-left: 1.2rem;
+  text-decoration: none;
+}
+.footer a:hover {
+  text-decoration: underline;
+  color: var(--accent-color);
+}
+
+/* JavaScript 기능 지원을 위한 추가 스타일 */
+.skills-group li {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.skills-group li.selected {
+    background: var(--primary-color) !important;
+    color: white !important;
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+.notification {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* 키보드 네비게이션 스타일 */
+.keyboard-navigation *:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+/* 애니메이션 성능 최적화 */
+.skills-group, .project-card, .contact-info-card, .contact-form-card {
+    will-change: opacity, transform;
+}
+
+/* 로딩 상태 스타일 */
+.btn-primary:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* ====== 미디어쿼리 ====== *//* Hero 섹션 기본 스타일 (데스크톱: 901px 이상) */
+.hero-container {
+    flex-direction: row;
+    align-items: center;
+    gap: 60px;
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 2rem;
+    width: 100%;
+}
+
+.hero-text {
+    flex: 2;
+    margin-left: 20px;
+}
+
+.hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+/* 태블릿: 601px ~ 900px */
+@media screen and (max-width: 900px) and (min-width: 601px) {
+    .hero-container {
+        flex-direction: column !important;
+        gap: 2rem;
+        text-align: center;
+    }
+    
+    .hero-text {
+        margin-left: 0 !important;
+        flex: none;
+    }
+    
+    .hero-image {
+        flex: none;
+        order: -1;
+    }
+    
+    .profile-image {
+        width: 200px;
+        height: 200px;
+    }
+    
+    .hero-title {
+        font-size: 2.2rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.3rem;
+    }
+}
+
+/* 모바일: 600px 이하 */
+@media screen and (max-width: 600px) {
+    .hero-main {
+        padding: 3rem 0 2rem;
+        min-height: calc(100vh - 60px);
+    }
+    
+    .hero-container {
+        flex-direction: column !important;
+        gap: 1.5rem;
+        text-align: center;
+        padding: 0 1rem;
+    }
+    
+    .hero-text {
+        margin-left: 0 !important;
+        flex: none;
+    }
+    
+    .hero-image {
+        flex: none;
+        order: -1;
+        justify-content: center;
+    }
+    
+    .hero-title {
+        font-size: 1.8rem;
+        line-height: 1.2;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .hero-description {
+        font-size: 0.9rem;
+        line-height: 1.6;
+    }
+    
+    .profile-image {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+    }
+    
+    .btn-primary, .btn-secondary {
+        width: 200px;
+        padding: 0.8rem 1.5rem;
+    }
+}
+
+/* 작은 모바일: 480px 이하 */
+@media screen and (max-width: 480px) {
+    .hero-main {
+        padding: 2rem 0 1.5rem;
+    }
+    
+    .hero-container {
+        gap: 1rem;
+        padding: 0 0.5rem;
+    }
+    
+    .hero-title {
+        font-size: 1.6rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+    
+    .hero-description {
+        font-size: 0.85rem;
+    }
+    
+    .profile-image {
+        width: 120px;
+        height: 120px;
+    }
+}
+/* Skills 섹션 기본 스타일 */
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.skill-card {
+    background: #fff;
+    border-radius: var(--radius);
+    box-shadow: 0 2px 12px var(--shadow);
+    padding: 2rem 2rem 1.25rem 2rem;
+    min-width: 260px; 
+    max-width: 340px;
+    flex: 1;
+    margin-bottom: 2rem;
+    transition: transform 0.18s, box-shadow 0.18s;
+    cursor: pointer;
+}
+
+/* 태블릿: 768px 이하 */
+@media screen and (max-width: 768px) {
+    .skills-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+        padding: 0 1rem;
+    }
+    
+    .skill-card {
+        max-width: 100%;
+        min-width: 280px;
+        width: 100%;
+    }
+    
+    .skill-card h3 {
+        font-size: 1.1rem;
+    }
+    
+    .skill-card li {
+        font-size: 0.95rem;
+        padding: 0.5rem 0.8rem;
+    }
+}
+
+/* 모바일: 480px 이하 */
+@media screen and (max-width: 480px) {
+    .skills-section {
+        padding: 4rem 0 3rem;
+    }
+    
+    .skills-container {
+        padding: 0 0.5rem;
+        gap: 1rem;
+    }
+    
+    .skill-card {
+        padding: 1.5rem;
+        min-width: 250px;
+        max-width: 100%;
+    }
+    
+    .skill-card h3 {
+        font-size: 1rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .skill-card li {
+        padding: 0.45rem 0.7rem;
+        font-size: 0.9rem;
+        margin-bottom: 0.3rem;
+    }
+}
+/* Projects 섹션 반응형 추가 */
+@media screen and (max-width: 768px) {
+    .projects-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+        padding: 0 1rem;
+    }
+    
+    .project-card {
+        max-width: 100%;
+        min-width: 280px;
+        width: 100%;
+    }
+    
+    .project-card h3 {
+        font-size: 1.1rem;
+    }
+    
+    .project-card p {
+        font-size: 0.9rem;
+    }
+    
+    .project-tech {
+        flex-wrap: wrap;
+        gap: 0.3rem;
+    }
+    
+    .project-tech span {
+        font-size: 0.75rem;
+        padding: 0.2rem 0.5rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .projects-section {
+        padding: 4rem 0 3rem;
+    }
+    
+    .project-card {
+        padding: 1.5rem;
+        min-width: 250px;
+    }
+    
+    .project-card h3 {
+        font-size: 1rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .project-card p {
+        font-size: 0.85rem;
+        line-height: 1.5;
+    }
+}
+/* Contact 섹션 반응형 개선 */
+@media screen and (max-width: 768px) {
+    .contact-container {
+        flex-direction: column !important;
+        gap: 2rem;
+    }
+    
+    .contact-info-card,
+    .contact-form-card {
+        max-width: 100%;
+        width: 100%;
+    }
+    
+    .contact-info-card h3,
+    .contact-form-card h3 {
+        font-size: 1.2rem;
+    }
+    
+    .contact-info-card .contact-item {
+        margin-bottom: 1rem;
+    }
+    
+    .contact-form-card input,
+    .contact-form-card textarea {
+        font-size: 1rem;
+        padding: 0.8rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .contact-section {
+        padding: 4rem 0 3rem;
+    }
+    
+    .contact-container {
+        padding: 0 0.5rem;
+        gap: 1.5rem;
+    }
+    
+    .contact-info-card,
+    .contact-form-card {
+        padding: 1.5rem;
+    }
+    
+    .contact-info-card h3,
+    .contact-form-card h3 {
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
+    }
+    
+    .contact-form-card .btn-primary {
+        width: 100%;
+        padding: 1rem;
+        font-size: 1rem;
+    }
+}
+/* About 섹션 반응형 추가 */
+@media screen and (max-width: 768px) {
+    .about-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 2rem;
+    }
+    
+    .stats-container {
+        justify-content: center;
+        gap: 1rem;
+    }
+    
+    .stat-item {
+        min-width: 120px;
+    }
+    
+    .stat-number {
+        font-size: 1.8rem;
+    }
+    
+    .stat-label {
+        font-size: 0.9rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .about-section {
+        padding: 4rem 0 3rem;
+    }
+    
+    .about-container {
+        padding: 0 1rem;
+        gap: 1.5rem;
+    }
+    
+    .stats-container {
+        flex-wrap: wrap;
+        gap: 0.8rem;
+    }
+    
+    .stat-item {
+        min-width: 100px;
+        padding: 1rem;
+    }
+    
+    .stat-number {
+        font-size: 1.5rem;
+    }
+    
+    .stat-label {
+        font-size: 0.8rem;
+    }
+}
+/* 햄버거 메뉴 반응형 완성 */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background: var(--text-color);
+    margin: 3px 0;
+    transition: 0.3s;
+}
+
+@media screen and (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+    
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 60px;
+        flex-direction: column;
+        background-color: white;
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+        z-index: 999;
+    }
+    
+    .nav-menu.active {
+        left: 0;
+    }
+    
+    .nav-menu li {
+        margin: 1rem 0;
+    }
+    
+    .nav-menu a {
+        font-size: 1.1rem;
+        padding: 1rem;
+        display: block;
+    }
+    
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .hamburger.active span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    
+    .hamburger.active span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+}
+/* Footer 반응형 추가 */
+@media screen and (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+    
+    .footer-social {
+        justify-content: center;
+        margin-top: 1rem;
+    }
+    
+    .footer p {
+        font-size: 0.9rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .footer {
+        padding: 2rem 0;
+    }
+    
+    .footer-content {
+        padding: 0 1rem;
+    }
+    
+    .social-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
+    }
+    
+    .footer p {
+        font-size: 0.8rem;
+    }
+}
+/* 전체 섹션 공통 반응형 */
+@media screen and (max-width: 768px) {
+    .container {
+        padding: 0 1rem;
+        max-width: 100%;
+    }
+    
+    h2 {
+        font-size: 1.8rem;
+        margin-bottom: 2rem;
+    }
+    
+    section {
+        padding: 4rem 0 3rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .container {
+        padding: 0 0.5rem;
+    }
+    
+    h2 {
+        font-size: 1.6rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    section {
+        padding: 3rem 0 2rem;
+    }
+    
+    body {
+        font-size: 14px;
+    }
+}
+
+
+/* === END === */

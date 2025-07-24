@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>김가은 포트폴리오</title>
-  <link rel="stylesheet" href="style3.css">
+  <title>Olivia's Portfolio</title>
+  <link rel="stylesheet" href="css/style3.css">
 </head>
 <body>
   <!-- Navigation Bar -->
@@ -28,17 +28,17 @@
   </nav>
 
   <!-- Hero Section -->
-  <header class="hero-main" id="home">
-    <div class="container hero-container">
+  <section class="hero-main" id="home">
+    <div class="hero-container">
       <div class="hero-content">
         <div class="hero-text">
          <h1 class="hero-title">안녕하세요!<br>저는 <span class="highlight">김가은</span>입니다.</h1>
           <h2 class="hero-subtitle">Java FullStack Developer</h2>
-          <p class="hero-description">
-            사람과 소통하며<br>
-            교육, 글로벌 협업, 다양한 환경에서<br>
-            실질적인 변화를 만들어온 개발자입니다.
-          </p>
+            <p class="hero-description">
+              다양한 사람과 소통하며<br>
+              교육, 글로벌 협업, 다양한 환경에서<br>
+              실질적인 변화를 만들어온 개발자입니다.
+            </p>
           <div class="hero-buttons">
             <a href="#projects" class="btn-primary">프로젝트 보기</a>
             <a href="eoneoreul-maegaero-saramdeulgwa-sotonghaneun-gimgaeun-ibnida.__day_dreamer.pdf" class="btn-secondary" download>이력서 다운로드</a>
@@ -55,7 +55,7 @@
         </div>
       </div>
     </div>
-  </header>
+  </section>
 
   <!-- About Section -->
   <section class="about-main" id="about">
@@ -78,60 +78,62 @@
 
   <!-- Skills Section -->
   <section id="skills" class="skills-section">
-  <h2>SKILLS</h2>
-  <div class="skills-container">
-    <div class="skill-group">
-      <h3>Language</h3>
-      <ul>
-        <li>TypeScript</li>
-        <li>JavaScript</li>
-        <li>Python</li>
-      </ul>
-    </div>
-      <div class="skill-group">
-        <h3>Frontend</h3>
-        <ul>
-          <li>HTML5</li>
-          <li>CSS3</li>
-          <li>JavaScript</li>
-          <li>React</li>
-          <li>Vue</li>
-          <li>Node.js</li>
-        </ul>
+    <div class="container">
+      <h2>SKILLS & TECHNOLOGIES</h2>
+      <div class="skills-container">
+        <div class="skill-card">
+          <h3>Language</h3>
+          <ul>
+            <li>TypeScript</li>
+            <li>JavaScript</li>
+            <li>Python</li>
+          </ul>
+        </div>
+          <div class="skill-card">
+            <h3>Frontend</h3>
+            <ul>
+              <li>HTML5</li>
+              <li>CSS3</li>
+              <li>JavaScript</li>
+              <li>React</li>
+              <li>Vue</li>
+              <li>Node.js</li>
+            </ul>
+          </div>
+          <div class="skill-card">
+            <h3>Backend</h3>
+            <ul>
+              <li>Java, JSP, Servlet</li>
+              <li>MyBatis</li>
+              <li>Spring, Spring Boot</li>
+            </ul>
+          </div>
+          <div class="skill-card">
+            <h3>Database & BigData</h3>
+            <ul>
+              <li>RDBMS, NoSQL, SQL</li>
+              <li>MariaDB, 공공데이터</li>
+              <li>오픈API 활용</li>
+            </ul>
+          </div>
+          <div class="skill-card">
+            <h3>Cloud Platform</h3>
+            <ul>
+              <li>Git, Github</li>
+              <li>생성형 AI(ChatGPT, Copilot, Cursor)</li>
+              <li>AWS, DevOps, MSA, Docker, Kubernetes, CI/CD</li>
+            </ul>
+          </div>
+          <script>
+            // 스킬 클릭시 색상변경 및 알림
+            document.querySelectorAll('.skill-tag').forEach(tag => {
+              tag.addEventListener('click', function() {
+                this.classList.toggle('active');
+                alert(this.textContent + " 스킬 선택됨");
+              });
+            });
+          </script>
       </div>
-      <div class="skill-group">
-        <h3>Backend</h3>
-        <ul>
-          <li>Java, JSP, Servlet</li>
-          <li>MyBatis</li>
-          <li>Spring, Spring Boot</li>
-        </ul>
-      </div>
-      <div class="skill-group">
-        <h3>Database & BigData</h3>
-        <ul>
-          <li>RDBMS, NoSQL, SQL</li>
-          <li>MariaDB, 공공데이터</li>
-          <li>오픈API 활용</li>
-        </ul>
-      </div>
-      <div class="skill-group">
-        <h3>Cloud Platform</h3>
-        <ul>
-          <li>Git, Github</li>
-          <li>생성형 AI(ChatGPT, Copilot, Cursor)</li>
-          <li>AWS, DevOps, MSA, Docker, Kubernetes, CI/CD</li>
-        </ul>
-      </div>
-      <script>
-        // 스킬 클릭시 색상변경 및 알림
-        document.querySelectorAll('.skill-tag').forEach(tag => {
-          tag.addEventListener('click', function() {
-            this.classList.toggle('active');
-            alert(this.textContent + " 스킬 선택됨");
-          });
-        });
-      </script>
     </div>
   </section>
 
@@ -180,7 +182,7 @@
       <!-- 연락처 정보 카드 -->
       <div class="contact-info-card">
         <ul>
-          <li><b>📱 전화</b> : <a href="tel:010-7237-4749">010-7237-4749</a></li>
+          <li><b>📱 전화</b> : 010-7237-4749</li>
           <li><b>📧 이메일</b> : <a href="mailto:something105@naver.com">something105@naver.com</a></li>
           <li><b>🌘 Github</b> : <a href="https://github.com/daydreamer9015" target="_blank">daydreamer9015</a></li>
         </ul>
@@ -193,7 +195,7 @@
           <label for="email">이메일</label>
           <input type="email" id="email" name="email" placeholder="이메일" required>
           <label for="message">메시지</label>
-          <textarea id="message" name="message" placeholder="메시지" required></textarea>
+          <textarea id="message" name="message" placeholder="하고 싶은 말을 자유롭게 적어주세요!" required></textarea>
           <button type="submit" class="btn-primary">전송</button>
         </form>
       </div>
