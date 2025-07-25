@@ -287,7 +287,8 @@ body {
   max-width: 900px;
   margin: 0 auto;
   padding: 0 2rem;
-}.skill-card {
+}
+.skill-card {
     background: #fff;
     border-radius: var(--radius);
     box-shadow: 0 2px 12px var(--shadow);
@@ -512,15 +513,7 @@ body {
 }
 
 /* ====== 미디어쿼리 ====== *//* Hero 섹션 기본 스타일 (데스크톱: 901px 이상) */
-.hero-container {
-    flex-direction: row;
-    align-items: center;
-    gap: 60px;
-    max-width: var(--container-width);
-    margin: 0 auto;
-    padding: 0 2rem;
-    width: 100%;
-}
+
 
 .hero-text {
     flex: 2;
@@ -660,18 +653,6 @@ body {
     padding: 0 2rem;
 }
 
-.skill-card {
-    background: #fff;
-    border-radius: var(--radius);
-    box-shadow: 0 2px 12px var(--shadow);
-    padding: 2rem 2rem 1.25rem 2rem;
-    min-width: 260px; 
-    max-width: 340px;
-    flex: 1;
-    margin-bottom: 2rem;
-    transition: transform 0.18s, box-shadow 0.18s;
-    cursor: pointer;
-}
 
 /* 태블릿: 768px 이하 */
 @media screen and (max-width: 768px) {
@@ -696,7 +677,8 @@ body {
         font-size: 0.95rem;
         padding: 0.5rem 0.8rem;
     }
-}
+  }
+
 
 /* 모바일: 480px 이하 */
 @media screen and (max-width: 480px) {

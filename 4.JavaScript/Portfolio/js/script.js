@@ -60,15 +60,17 @@ function initializeNavigation() {
     
     // 스크롤 시 네비게이션 배경 변화
     const navbar = document.querySelector(".navbar");
-    window.addEventListener("scroll", () => {
-        if (window.scrollY > 50) {
-            navbar.style.background = "rgba(255, 255, 255, 0.95)";
-            navbar.style.backdropFilter = "blur(10px)";
-        } else {
-            navbar.style.background = "#fff";
-            navbar.style.backdropFilter = "none";
-        }
-    });
+     if (navbar) {
+            window.addEventListener("scroll", () => {
+            if (window.scrollY > 50) {
+                navbar.style.background = "rgba(255, 255, 255, 0.95)";
+                navbar.style.backdropFilter = "blur(10px)";
+            } else {
+                navbar.style.background = "#fff";
+                navbar.style.backdropFilter = "none";
+            }
+        });
+    }
 }
 
 // ====== 2. 통계 데이터 계산 및 표시 ======
