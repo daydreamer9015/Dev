@@ -1,7 +1,7 @@
 /* ====== 전역 변수 및 리셋 ====== */
 :root {
-  --primary-color: #667eea;
-  --secondary-color: #764ba2;
+  --primary-color: #F7CAC9;
+  --secondary-color: #B3CEE5;
   --accent-color: #3b82f6;
   --danger-color: #f66565;
   --bg-color: #f9f9fb;
@@ -151,7 +151,7 @@ body {
   line-height: 1.1;
 }
 .hero-title .highlight {
-  background: linear-gradient(45deg, #ff9a9e, #fecfef);
+  background: linear-gradient(45deg, #ff9a9e, #C5B9CD);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;

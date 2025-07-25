@@ -9,9 +9,9 @@ public class Student {
 	public Student(String name, int age, String major, double gpa) {
 		//super();
 		this.name = name;
-		this.age = age;
+		setAge(age);
 		this.major = major;
-		this.gpa = gpa;
+		setGpa(gpa);
 	}
 
 	public String getName() {
@@ -35,6 +35,10 @@ public class Student {
 	}
 
 	public void setAge(int age) {
+		//나이 유효성 검증
+		if(age < 0 || age > 150) {
+			throw new IllegalArgumentException("나이는 0 이상 150 이하여야 합니다.");
+		}
 		this.age = age;
 	}
 
@@ -43,6 +47,9 @@ public class Student {
 	}
 
 	public void setGpa(double gpa) {
+		if(gpa < 0.0 || gpa > 4.0) {
+			throw new IllegalArgumentException("성적은 0.0 이상 4.0 이하여야 합니다.");
+		}
 		this.gpa = gpa;
 	}
 
