@@ -354,14 +354,13 @@ body {
 }
 
 .skills-container {
-  display: flex;
-  flex-wrap: nowrap;
-  gap: var(--card-gap);
-  align-content: center;
-  justify-content: center;
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 0 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: var(--card-gap);
+    justify-content: center;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 2rem;
 }
 
 .skill-card {
@@ -680,6 +679,11 @@ body {
   section {
     padding: 4rem 0 3rem;
   }
+
+.skills-container {
+    flex-direction: column;  /* 모바일에서는 세로 배치 */
+    align-items: center;
+}
 
   /* Cards 공통 */
   .skill-card, .project-card, 
