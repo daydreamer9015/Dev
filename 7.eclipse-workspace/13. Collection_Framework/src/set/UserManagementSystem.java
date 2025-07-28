@@ -85,13 +85,46 @@ public class UserManagementSystem {
 		System.out.println("-".repeat(30));
 		System.out.println("총 " + registeredUsers.size() + "명의 사용자가 등록되어 있습니다.");
 	}
+	/*
+	 * 사용자 삭제
+	 */
 	private static void deleteUser(Scanner scanner) {
-		// TODO Auto-generated method stub
+		System.out.println("삭제할 사용자 ID를 입력하세요: ");
+		String userId = scanner.nextLine().trim();
 		
+		if(userId.isEmpty()) {
+			System.out.println("✖️ 사용자 ID를 입력해주세요.");
+			return;
+		}
+		// 중요 계정 삭제 방지
+		if("admin".equals(userId)) {
+			System.out.println("⚠️ 관리자 계정은 삭제할 수 없습니다.");
+			return;
+		}
+		if(registeredUsers.remove(userId)) {
+			System.out.println("✅ 사용자 '" + userId + "'가 삭제되었습니다.");
+		} else {
+			System.out.println("✖️ 사용자 '" + userId + "'를 찾을 수 없습니다.");
+		}
 	}
+	/*
+	 * 사용자 존재 여부 조회하는 메서드
+	 * boolean contains(Object o)
+	 */
 	private static void searchUser(Scanner scanner) {
-		// TODO Auto-generated method stub
+		System.out.println("조회할 사용자 ID를 입력하세요: ");
+		String userId = scanner.nextLine().trim();
 		
+		// 빈 입력 체크
+		if(userId.isEmpty()) {
+			System.out.println("✖️ 사용자 ID를 입력해주세요.");
+			return;
+		}
+		if(registeredUsers.contains(userId)) {
+			System.out.println("✅ 사용자 '" + userId + "'가 시스템에 등록되어 있습니다.");
+		} else {
+			System.out.println("✖️ 사용자 '" + userId + "'를 찾을 수 없습니다.");
+		}
 	}
 	private static void registerUser(Scanner scanner) {
 		System.out.print("등록할 사용자 ID를 입력하세요: ");
