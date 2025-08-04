@@ -164,7 +164,7 @@ public class Library {
 		}
 		
 		String overDueMessage = overDue ? "연체 반납" : "";
-		System.out.println("반납 완료 - 책: " + book.getTitle() + "대출자: " + book.getBorrowedId() + overDueMessage);
+		System.out.println("반납 완료 - 책: " + book.getTitle() + ", 대출자: " + book.getBorrowedId() + overDueMessage);
 	}
 	/*
 	 * 전체 도서 목록 출력
