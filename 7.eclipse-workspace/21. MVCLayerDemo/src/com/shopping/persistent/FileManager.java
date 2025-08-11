@@ -27,7 +27,7 @@ public class FileManager {
 	public static <T> List<T> readFromFile(String fileName) {
 		// 파일 경로
 		String fullPath = normalizePath(fileName);
-		File file = new File(fileName);
+		File file = new File(fullPath);
 		
 		// 파일이 존재하지 않는 경우
 		if(!file.exists() ) {

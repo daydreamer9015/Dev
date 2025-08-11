@@ -27,7 +27,7 @@ public class UserController {
 			System.out.println("3. 로그아웃");
 			System.out.println("4. 내 정보 보기");
 			System.out.println("0. 돌아가기");
-			System.out.print("선택: ");
+			System.out.print("\n선택: ");
 			
 			String choice = scanner.nextLine();
 			// 사용자 선택에 따른 메서드 호출

@@ -1,5 +1,7 @@
 package com.shopping;
 
+import com.shopping.controller.MainController;
+
 /*
  * == 메인 메뉴 ==
  * 로그인되지 않음
@@ -31,6 +33,16 @@ package com.shopping;
  * 
  * 	환영합니다. [사용자]님!
  * 	초기 잔액: 10000.0원
+ * 
+ * == 로그인 ==
+ * 아이디 : user001
+ * 패스워드 : test1234
+ * [FileManager] 파일 읽기 성공 : data_\_users.dat
+ * [UserService] 로그인 성공 : user001
+ * 세션 생성 : user001님 로그인 
+ * 로그인 성공!
+ * 		환영합니다, user001님!
+ * 
  */
 
 /*
@@ -56,6 +68,25 @@ package com.shopping;
  * 		7) Main Application
  * 			- Main.java
  */
-public class Main {
 
+/*
+ * * 로그인 기능의 주요 요구사항
+ * 	- 사용자 ID와 비밀번호를 통한 인증
+ * 	- 세션 관리를 통한 로그인 상태 유지
+ * 	- 파일 시스템 기반 사용자 데이터 영속성
+ * 	- 예외 처리 및 유효성 검증 
+ * 
+ * * 로그인 프로세스 흐름
+ * 	- UI Layer : 사용자로부터 ID/PW 입력 받기
+ * 	- Controller : 입력값 유효성 검증
+ * 	- Service : 비즈니스 로직 처리(인증)
+ * 	- Repository : 사용자 데이터 조회
+ * 	- FileManager : 파일에서 데이터 로드
+ */
+public class Main {
+	public static void main(String[] args) {
+		// 메인 컨트롤러 인스턴스 생성
+		MainController mainController = new MainController();
+		mainController.start();
+	}
 }
